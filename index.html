@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skoterkort i Luleå – Utbildningar Luleå</title>
+<meta name="description" content="Förarbevis snöskoter i Luleå. Teorin tre kvällar hemifrån, uppkörning och prov samma dag när snön kommit. 1 750 kr + 250 kr kursmaterial. Godkänd av Transportstyrelsen.">
+<meta property="og:title" content="Skoterkort i Luleå – Utbildningar Luleå">
+<meta property="og:description" content="Teorin hemifrån. Uppkörning och prov samma dag, när snön kommit. 1 750 kr.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><circle cx='24' cy='24' r='24' fill='%239C3B2A'/><g fill='%23F7F3EC'><path d='M15 32 L9 32 L12.5 25 L10.5 25 L14 18.5 L12.5 18.5 L16 11 L19.5 18.5 L18 18.5 L21.5 25 L19.5 25 L23 32 L17 32 Z'/><path d='M31 32 L26 32 L29 26 L27.5 26 L30.5 20.5 L29.3 20.5 L32 14.5 L34.7 20.5 L33.5 20.5 L36.5 26 L35 26 L38 32 L33 32 Z'/></g><g fill='none' stroke='%23F7F3EC' stroke-width='3.4' stroke-linecap='round'><path d='M11 40C14 37 19 37 22 39.5'/><path d='M26 41C29 37.5 34 37.5 37 40'/></g></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Black&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Hoppa till innehållet</a>
+
+<!-- ===== SNÖLÄGESREMSAN – signaturelementet. Sätts med ett klick i adminpanelen. ===== -->
+<div class="snolage" id="snolage">
+  <div class="wrap snolage__in">
+    <span class="snolage__lampa" aria-hidden="true"></span>
+    <strong class="snolage__status">Väntar på snö</strong>
+    <span class="snolage__text">Teorin rullar som planerat. Uppkörningsplats meddelas när snön tillåter – du bokar din dag redan nu.</span>
+    <span class="snolage__datum">Uppdaterat 19 okt</span>
+  </div>
+</div>
+
+<header class="header">
+  <div class="wrap header__in">
+    <a class="brand" href="#top">
+      <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true">
+        <circle cx="24" cy="24" r="24" fill="currentColor"/>
+        <g fill="#F7F3EC">
+          <path d="M15 32 L9 32 L12.5 25 L10.5 25 L14 18.5 L12.5 18.5 L16 11 L19.5 18.5 L18 18.5 L21.5 25 L19.5 25 L23 32 L17 32 Z"/>
+          <path d="M31 32 L26 32 L29 26 L27.5 26 L30.5 20.5 L29.3 20.5 L32 14.5 L34.7 20.5 L33.5 20.5 L36.5 26 L35 26 L38 32 L33 32 Z"/>
+        </g>
+        <g fill="none" stroke="#F7F3EC" stroke-width="3.4" stroke-linecap="round">
+          <path d="M11 40C14 37 19 37 22 39.5"/>
+          <path d="M26 41C29 37.5 34 37.5 37 40"/>
+        </g>
+      </svg>
+      <span class="brand__name">Utbildningar Luleå</span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+      <em>Meny</em>
+    </button>
+    <nav class="nav" id="nav" aria-label="Huvudmeny">
+      <a href="#tillfallen">Teoritillfällen</a>
+      <a href="#uppkorning">Uppkörning</a>
+      <a href="#pris">Pris</a>
+      <a href="#ovriga">Övriga kurser</a>
+      <a class="btn btn--accent btn--sm" href="#tillfallen">Boka plats</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="top">
+  <div class="wrap hero__in">
+    <div class="hero__copy">
+      <p class="eyebrow">Säsongen 26/27 · Luleå</p>
+      <h1>Ta skoterkortet den här vintern.</h1>
+      <p class="lead">Tre kvällar teori hemifrån. Sedan en dag på snön – uppkörning och prov samma dag.
+        Vi håller med skoter och hjälm.</p>
+      <div class="hero__knappar">
+        <a class="btn btn--accent" href="#tillfallen">Se lediga platser</a>
+        <a class="lank" href="#sa-funkar">Så funkar det</a>
+      </div>
+    </div>
+
+    <aside class="prisruta" aria-label="Pris och nästa tillfälle">
+      <p class="prisruta__rubrik">Förarbevis snöskoter</p>
+      <p class="prisruta__tal">1 750<span>kr</span></p>
+      <p class="prisruta__not">+ 250 kr kursmaterial</p>
+      <p class="prisruta__rad"><span>Nästa start</span><strong>10 nov</strong></p>
+      <p class="prisruta__rad"><span>Platser kvar</span><strong>5 av 12</strong></p>
+      <a class="btn btn--ljus btn--block" href="#tillfallen">Boka plats</a>
+    </aside>
+  </div>
+</section>
+
+<!-- ===== SÅ FUNKAR DET ===== -->
+<section class="steg" id="sa-funkar">
+  <div class="wrap">
+    <h2>Så funkar det</h2>
+    <ol class="steg__lista">
+      <li><h3>Boka en teorigrupp</h3>
+        <p>Platserna är räknade. När de är slut är de slut för just den gruppen.</p></li>
+      <li><h3>Tre kvällar teori</h3>
+        <p>18.00–21.30, cirka 11 timmar totalt. Oftast via Teams hemifrån, ibland på plats i Luleå.</p></li>
+      <li><h3>Välj din dag på snön</h3>
+        <p>Du bokar själv bland uppkörningsdagarna. Platsen spikas när snöläget är känt.</p></li>
+      <li><h3>Uppkörning och prov</h3>
+        <p>Allt samma dag. Du åker hem med kortet avklarat.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===== TEORITILLFÄLLEN ===== -->
+<section class="anslag" id="tillfallen">
+  <div class="wrap">
+    <h2>Teoritillfällen</h2>
+    <p class="ingress">Tre kvällar per grupp, max 12 elever.</p>
+
+    <ul class="rader">
+      <li class="rad rad--fa" data-platser="5" data-tak="12" data-namn="Teori 10–12 november">
+        <div class="rad__datum"><strong>10</strong><span>nov</span><em>–12 nov</em></div>
+        <div class="rad__info">
+          <h3>Tre kvällar via Teams</h3>
+          <p>Tis–tors 18.00–21.30 · hemifrån · ca 11 h</p>
+        </div>
+        <div class="rad__platser"><strong class="rad__tal">5</strong><span>platser kvar</span></div>
+        <div class="rad__knapp"><button class="btn btn--accent btn--block boka">Boka plats</button></div>
+      </li>
+
+      <li class="rad rad--ledig" data-platser="9" data-tak="12" data-namn="Teori 24–26 november">
+        <div class="rad__datum"><strong>24</strong><span>nov</span><em>–26 nov</em></div>
+        <div class="rad__info">
+          <h3>Tre kvällar på plats</h3>
+          <p>Tis–tors 18.00–21.30 · Björkskatavägen 2 · ca 11 h</p>
+        </div>
+        <div class="rad__platser"><strong class="rad__tal">9</strong><span>platser kvar</span></div>
+        <div class="rad__knapp"><button class="btn btn--accent btn--block boka">Boka plats</button></div>
+      </li>
+
+      <li class="rad rad--full" data-platser="0" data-tak="12" data-namn="Teori 8–10 december">
+        <div class="rad__datum"><strong>8</strong><span>dec</span><em>–10 dec</em></div>
+        <div class="rad__info">
+          <h3>Tre kvällar via Teams</h3>
+          <p>Tis–tors 18.00–21.30 · hemifrån · ca 11 h</p>
+        </div>
+        <div class="rad__platser"><strong class="rad__tal">0</strong><span>platser kvar</span></div>
+        <div class="rad__knapp"><button class="btn btn--full btn--block" disabled>Fullbokat</button></div>
+      </li>
+
+      <li class="rad rad--ledig" data-platser="12" data-tak="12" data-namn="Teori 12–14 januari">
+        <div class="rad__datum"><strong>12</strong><span>jan</span><em>–14 jan</em></div>
+        <div class="rad__info">
+          <h3>Tre kvällar via Teams</h3>
+          <p>Tis–tors 18.00–21.30 · hemifrån · ca 11 h</p>
+        </div>
+        <div class="rad__platser"><strong class="rad__tal">12</strong><span>platser kvar</span></div>
+        <div class="rad__knapp"><button class="btn btn--accent btn--block boka">Boka plats</button></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== UPPKÖRNING ===== -->
+<section class="anslag anslag--upp" id="uppkorning">
+  <div class="wrap">
+    <h2>Uppkörning och prov</h2>
+    <p class="ingress">Uppkörning och teoriprov samma dag. Du väljer själv vilken – först till kvarn.
+      Platsen meddelas när snön ligger.</p>
+
+    <ul class="rader">
+      <li class="rad rad--ledig" data-platser="8" data-tak="8" data-namn="Uppkörning 12 december">
+        <div class="rad__datum"><strong>12</strong><span>dec</span></div>
+        <div class="rad__info"><h3>Uppkörning + prov</h3><p>Hela dagen · fyra elever per grupp</p></div>
+        <div class="rad__platser"><strong class="rad__tal">8</strong><span>platser kvar</span></div>
+        <div class="rad__knapp"><button class="btn btn--accent btn--block boka">Boka dag</button></div>
+      </li>
+      <li class="rad rad--fa" data-platser="3" data-tak="8" data-namn="Uppkörning 9 januari">
+        <div class="rad__datum"><strong>9</strong><span>jan</span></div>
+        <div class="rad__info"><h3>Uppkörning + prov</h3><p>Hela dagen · fyra elever per grupp</p></div>
+        <div class="rad__platser"><strong class="rad__tal">3</strong><span>platser kvar</span></div>
+        <div class="rad__knapp"><button class="btn btn--accent btn--block boka">Boka dag</button></div>
+      </li>
+      <li class="rad rad--ledig" data-platser="8" data-tak="8" data-namn="Uppkörning 6 februari">
+        <div class="rad__datum"><strong>6</strong><span>feb</span></div>
+        <div class="rad__info"><h3>Uppkörning + prov</h3><p>Hela dagen · fyra elever per grupp</p></div>
+        <div class="rad__platser"><strong class="rad__tal">8</strong><span>platser kvar</span></div>
+        <div class="rad__knapp"><button class="btn btn--accent btn--block boka">Boka dag</button></div>
+      </li>
+      <li class="rad rad--ledig" data-platser="8" data-tak="8" data-namn="Uppkörning 6 mars">
+        <div class="rad__datum"><strong>6</strong><span>mar</span></div>
+        <div class="rad__info"><h3>Uppkörning + prov</h3><p>Hela dagen · fyra elever per grupp</p></div>
+        <div class="rad__platser"><strong class="rad__tal">8</strong><span>platser kvar</span></div>
+        <div class="rad__knapp"><button class="btn btn--accent btn--block boka">Boka dag</button></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== PRIS + KRAV ===== -->
+<section class="pris" id="pris">
+  <div class="wrap pris__in">
+    <div>
+      <h2>Vad det kostar</h2>
+      <p class="pris__tal">1 750 kr</p>
+      <p class="pris__under">+ 250 kr för kursmaterial</p>
+      <ul class="bock">
+        <li>Tre kvällar teori, ca 11 timmar</li>
+        <li>Lån av studiebok</li>
+        <li>Uppkörningsdag med skoter och hjälm</li>
+        <li>Teoriprov samma dag som uppkörningen</li>
+      </ul>
+      <p class="finstilt">Examinationsavgiften till Transportstyrelsen tillkommer och betalas med inbetalningskort
+        som du får hem. Faktura på kursavgiften skickas före kursstart.</p>
+    </div>
+    <div>
+      <h2>Innan du bokar</h2>
+      <dl class="kravlista">
+        <dt>15 år och 9 månader</dt><dd>lägsta ålder för att få övningsköra på uppkörningsdagen.</dd>
+        <dt>Fyllda 16 år</dt><dd>krävs för att få skriva provet. Ingen dispens finns.</dd>
+        <dt>Legitimation</dt><dd>ta med giltig legitimation till provtillfället.</dd>
+        <dt>Förkunskaper</dt><dd>inga. Du behöver inte ha kört skoter tidigare.</dd>
+        <dt>Kläder</dt><dd>varma kläder på uppkörningsdagen. Skoter och hjälm håller vi med.</dd>
+        <dt>Under 18?</dt><dd>målsman fyller i sitt namn och nummer i bokningen, och får fakturan.</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ÖVRIGA UTBILDNINGAR ===== -->
+<section class="ovriga" id="ovriga">
+  <div class="wrap">
+    <h2>Vi gör mer än skoterkort</h2>
+    <p class="ingress">Små grupper, riktig genomgång. Ring Lennart för datum.</p>
+    <ul class="kurser">
+      <li>
+        <h3>Mopedförarbevis, klass II</h3>
+        <p class="kurser__pris">1 850 kr</p>
+        <p>Tre teoriträffar och ett praktikpass där vi övar manövrering. Examination ingår. Från 14 år 9 mån,
+          provet från 15 år. Egen hjälm krävs, moped finns att låna.</p>
+      </li>
+      <li>
+        <h3>Jägarexamen, teori</h3>
+        <p class="kurser__pris">2 200 kr</p>
+        <p>Djur, natur, miljö, jaktlagen, rättigheter och skyldigheter. Kurslitteraturen lånar du av oss.
+          250 kr per provtillfälle. Teoriprovet måste vara godkänt innan skjutningen.</p>
+      </li>
+      <li>
+        <h3>Viltspår och eftersök</h3>
+        <p class="kurser__pris">1 500 kr inkl. kursbok</p>
+        <p>Tre dagar i rad: fredag kväll teori, lördag och söndag praktik i skogen. Kursledaren är utbildad
+          viltspårsdomare med egen tränad hund. Kaffet bjuder vi på.</p>
+      </li>
+      <li>
+        <h3>Permobilbjörn och -älg</h3>
+        <p class="kurser__pris">550 kr per test</p>
+        <p>Testa hunden på permobilbjörnen eller -älgen. Klarar hunden testet är livvärdet 10 000 kr på Folksam.</p>
+      </li>
+      <li>
+        <h3>HLR – vuxen, barn, hjärtstartare</h3>
+        <p class="kurser__pris">250 kr per person</p>
+        <p>Minst fem deltagare. Passar arbetsplatsen, föreningen eller jaktlaget.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== KONTAKT ===== -->
+<section class="kontakt" id="kontakt">
+  <div class="wrap kontakt__in">
+    <div>
+      <h2>Du pratar med Lennart.</h2>
+      <p class="ingress">Inget callcenter. Ring om du är osäker på vilken grupp du ska ta, om åldern ligger
+        på gränsen eller om ni är ett gäng som vill gå tillsammans.</p>
+      <ul class="kontakt__lista">
+        <li><span>Telefon</span><a href="tel:+46706687896">070-668 78 96</a></li>
+        <li><span>E-post</span><a href="mailto:lennart@utbildningarlulea.se">lennart@utbildningarlulea.se</a></li>
+        <li><span>Adress</span><a href="https://www.google.com/maps/search/?api=1&query=Bj%C3%B6rkskatav%C3%A4gen+2%2C+976+31+Lule%C3%A5" target="_blank" rel="noopener">Björkskatavägen 2, 976 31 Luleå</a></li>
+      </ul>
+    </div>
+    <div class="fraga">
+      <h3>Vanliga frågor</h3>
+      <details><summary>Måste jag vara 16 år för att gå kursen?</summary>
+        <p>Nej. Du får gå kursen och övningsköra från 15 år och 9 månader. Men du måste ha fyllt 16 år den dag du skriver provet.</p></details>
+      <details><summary>Vad händer om snön inte kommer?</summary>
+        <p>Teorin körs ändå. Uppkörningsdagen flyttas framåt och du får nytt datum – snöläget längst upp på sidan uppdateras så fort det ändras.</p></details>
+      <details><summary>Behöver jag egen skoter?</summary>
+        <p>Nej. Vi håller med skoter och hjälm på uppkörningsdagen. Ta med varma kläder.</p></details>
+      <details><summary>Kan jag gå teorin hemifrån?</summary>
+        <p>Oftast ja – de flesta grupperna körs via Teams på kvällstid. Vissa hålls på plats i Luleå. Det står på varje tillfälle.</p></details>
+      <details><summary>När betalar jag?</summary>
+        <p>Faktura skickas före kursstart. Är du under 18 går fakturan till målsman.</p></details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__in">
+    <div>
+      <p class="footer__namn">Utbildningar Luleå</p>
+      <p class="footer__rad">Björkskatavägen 2, 976 31 Luleå · 070-668 78 96 · lennart@utbildningarlulea.se</p>
+      <p class="footer__rad footer__rad--dim">Utbildningar Luleå AB · org.nr 559162-0744 · Snöskoterutbildningen är kontrollerad och godkänd av Transportstyrelsen.</p>
+    </div>
+    <nav class="footer__nav" aria-label="Sidfot">
+      <a href="#tillfallen">Teoritillfällen</a>
+      <a href="#uppkorning">Uppkörning</a>
+      <a href="#pris">Pris</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+  </div>
+</footer>
+
+<!-- ===== BOKNINGSRUTA ===== -->
+<div class="modal" id="modal" hidden>
+  <div class="modal__bak" data-stang></div>
+  <div class="modal__box" role="dialog" aria-modal="true" aria-labelledby="modalRubrik">
+    <button class="modal__x" data-stang aria-label="Stäng">×</button>
+    <p class="eyebrow">Boka plats</p>
+    <h3 id="modalRubrik">Teori 10–12 november</h3>
+    <p class="modal__kvar" id="modalKvar">5 platser kvar av 12</p>
+    <form id="bokform" novalidate>
+      <label>Namn på eleven<input type="text" name="namn" required autocomplete="name"></label>
+      <label>Personnummer<input type="text" name="pnr" placeholder="ÅÅMMDD-XXXX" required></label>
+      <label>Telefon<input type="tel" name="tel" required autocomplete="tel"></label>
+      <label>E-post<input type="email" name="epost" required autocomplete="email"></label>
+      <label>Målsman och telefon <small>(om eleven är under 18)</small><input type="text" name="malsman"></label>
+      <button class="btn btn--accent btn--block" type="submit">Boka platsen</button>
+      <p class="modal__finstilt">Faktura skickas före kursstart. Bokningen är bindande 14 dagar före start.</p>
+    </form>
+    <div class="modal__klar" id="modalKlar" hidden>
+      <p class="modal__klar-ikon" aria-hidden="true">✓</p>
+      <h3>Platsen är din</h3>
+      <p>Lennart ser bokningen direkt och skickar faktura före kursstart. Du får en bekräftelse på e-post.</p>
+      <button class="btn btn--primary btn--block" data-stang>Stäng</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

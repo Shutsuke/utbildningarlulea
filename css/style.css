@@ -1,0 +1,219 @@
+/* ===== Utbildningar Luleå – tokens =====
+   Björk, skiffer och lingon. Jordnära material, dämpad accent, mycket luft.
+   Ingen gradient, inga dekormönster – typografin och siffrorna får bära. */
+:root{
+  --skiffer:#222A2B;      /* mörk, lite blågrå – varmare än svart */
+  --skiffer-djup:#161C1D;
+  --bjork:#EFEAE2;        /* varm benvit, inte kall snövit */
+  --vit:#FAF8F4;
+  --text:#222A2B;
+  --dim:#5A6264;
+  --linje:#DAD3C8;
+  --lingon:#9C3B2A;       /* dämpad, jordnära accent – ersätter varselorange */
+  --lingon-ljus:#B8503C;
+  --kall:#5E7D82;         /* dämpad isblågrön, sekundär */
+  --wrap:1120px;
+  --font:'Archivo',system-ui,-apple-system,"Segoe UI",sans-serif;
+  --tung:'Archivo Black','Archivo',system-ui,sans-serif;
+}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--font);color:var(--text);background:var(--bjork);line-height:1.6;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+a{color:var(--lingon)}
+h1,h2{margin:0;font-family:var(--tung);font-weight:400;line-height:1.05;letter-spacing:-.025em;overflow-wrap:break-word}
+h3{margin:0;font-weight:700;font-size:18px;line-height:1.25;letter-spacing:-.005em}
+h1{font-size:clamp(34px,6.2vw,66px);max-width:12ch}
+h2{font-size:clamp(26px,3.4vw,38px)}
+p{margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 22px}
+.skip{position:absolute;left:-999px;top:0;background:var(--lingon);color:#fff;padding:10px 14px;z-index:200}
+.skip:focus{left:12px;top:12px}
+:focus-visible{outline:2px solid var(--lingon);outline-offset:3px}
+
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:16px}
+.lead{font-size:clamp(17px,1.6vw,19px);color:var(--dim);max-width:46ch;margin-top:20px}
+.ingress{color:var(--dim);margin-top:10px;max-width:54ch}
+
+/* ===== Knappar ===== */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 24px;
+  font-family:var(--font);font-weight:700;font-size:16px;text-decoration:none;
+  border:1px solid transparent;border-radius:3px;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.btn--sm{min-height:40px;padding:0 16px;font-size:14px}
+.btn--primary{background:var(--skiffer);color:#fff;border-color:var(--skiffer)}
+.btn--primary:hover{background:var(--skiffer-djup)}
+.btn--accent{background:var(--lingon);color:#fff;border-color:var(--lingon)}
+.btn--accent:hover{background:var(--lingon-ljus);border-color:var(--lingon-ljus)}
+.btn--ljus{background:var(--bjork);color:var(--skiffer);border-color:var(--bjork)}
+.btn--ljus:hover{background:#fff;border-color:#fff}
+.btn--full{background:transparent;color:var(--dim);border-color:var(--linje);cursor:not-allowed}
+.btn--block{width:100%}
+.lank{font-weight:700;font-size:16px;color:var(--text);text-decoration:none;border-bottom:2px solid var(--linje);padding-bottom:3px}
+.lank:hover{border-bottom-color:var(--lingon);color:var(--lingon)}
+
+/* ===== SNÖLÄGESREMSAN (signatur – enda mörka inslaget högst upp) ===== */
+.snolage{background:var(--skiffer);color:#CFD6D4;font-size:14px}
+.snolage__in{display:flex;align-items:center;flex-wrap:wrap;gap:4px 13px;padding-top:11px;padding-bottom:11px}
+.snolage__lampa{width:9px;height:9px;flex:0 0 auto;border-radius:50%;background:var(--lingon-ljus)}
+.snolage__status{font-size:13px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#fff}
+.snolage__text{color:#9BA5A4;flex:1 1 300px;min-width:0}
+.snolage__datum{color:#788382;font-size:12.5px}
+.snolage--snon .snolage__lampa{background:#6FA98A}
+.snolage--slut .snolage__lampa{background:#788382}
+
+/* ===== Header ===== */
+.header{position:sticky;top:0;z-index:60;background:rgba(239,234,226,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--linje)}
+.header__in{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:14px;padding-bottom:14px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--lingon)}
+.brand__mark{width:34px;height:34px;flex:0 0 auto}
+.brand__name{font-family:var(--tung);font-size:17px;letter-spacing:-.025em;color:var(--skiffer)}
+.nav{display:flex;align-items:center;gap:26px}
+.nav a{text-decoration:none;font-weight:600;font-size:15px;color:var(--text)}
+.nav a:not(.btn):hover{color:var(--lingon)}
+.nav-toggle{display:none;flex-direction:column;align-items:center;gap:4px;background:none;border:1px solid var(--linje);border-radius:3px;padding:8px 10px;cursor:pointer}
+.nav-toggle span{display:block;width:20px;height:2px;background:var(--skiffer)}
+.nav-toggle em{font-size:10px;font-weight:700;font-style:normal;letter-spacing:.09em;text-transform:uppercase;margin-top:2px}
+
+/* ===== Hero – ljus, ett enda mörkt ankare ===== */
+.hero__in{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(280px,.8fr);gap:56px;align-items:center;
+  padding-top:84px;padding-bottom:88px}
+.hero__knappar{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px;margin-top:34px}
+
+.prisruta{background:var(--skiffer);color:#fff;border-radius:4px;padding:28px 26px 26px}
+.prisruta__rubrik{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#9BA5A4}
+.prisruta__tal{font-family:var(--tung);font-size:54px;line-height:1;letter-spacing:-.035em;margin-top:10px}
+.prisruta__tal span{font-family:var(--font);font-size:18px;font-weight:700;margin-left:7px;letter-spacing:0;color:#9BA5A4}
+.prisruta__not{font-size:14px;color:#9BA5A4;margin-top:6px}
+.prisruta__rad{display:flex;justify-content:space-between;gap:12px;font-size:15px;padding:11px 0;border-top:1px solid #35403F}
+.prisruta__rad:first-of-type{margin-top:22px}
+.prisruta__rad span{color:#9BA5A4}
+.prisruta__rad strong{font-weight:700}
+.prisruta .btn{margin-top:22px}
+
+/* ===== Så funkar det ===== */
+.steg{background:var(--vit);border-top:1px solid var(--linje);border-bottom:1px solid var(--linje);padding:68px 0 74px}
+.steg__lista{list-style:none;counter-reset:s;margin:34px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:34px}
+.steg__lista li{counter-increment:s}
+.steg__lista li::before{content:counter(s);display:block;font-family:var(--tung);font-size:15px;color:var(--lingon);margin-bottom:12px}
+.steg__lista h3{margin-bottom:7px}
+.steg__lista p{font-size:14.5px;color:var(--dim)}
+
+/* ===== Tillfällen ===== */
+.anslag{padding:72px 0 10px}
+.anslag--upp{padding:56px 0 76px}
+.rader{list-style:none;margin:30px 0 0;padding:0;display:grid;gap:10px}
+.rad{display:grid;grid-template-columns:92px minmax(0,1fr) 112px 172px;gap:22px;align-items:center;
+  background:var(--vit);border:1px solid var(--linje);border-left:4px solid var(--kall);border-radius:4px;padding:18px 22px}
+.rad--fa{border-left-color:var(--lingon)}
+.rad--full{background:transparent;border-left-color:var(--linje);color:var(--dim)}
+.rad__datum{font-family:var(--tung);line-height:1;text-align:center}
+.rad__datum strong{display:block;font-size:38px;letter-spacing:-.04em}
+.rad__datum span{display:block;font-family:var(--font);font-size:13px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--dim);margin-top:5px}
+.rad__datum em{display:block;font-family:var(--font);font-size:12px;font-style:normal;font-weight:500;color:var(--dim);margin-top:4px}
+.rad__info h3{margin-bottom:4px}
+.rad__info p{font-size:14px;color:var(--dim)}
+.rad--full .rad__info h3{color:var(--dim)}
+.rad__platser{text-align:center}
+.rad__tal{display:block;font-family:var(--tung);font-size:34px;line-height:1;letter-spacing:-.04em}
+.rad--fa .rad__tal{color:var(--lingon)}
+.rad--full .rad__tal{color:var(--dim)}
+.rad__platser span{display:block;font-size:12px;color:var(--dim);margin-top:5px}
+
+/* ===== Pris + krav ===== */
+.pris{background:var(--vit);border-top:1px solid var(--linje);border-bottom:1px solid var(--linje);padding:74px 0 78px}
+.pris__in{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px}
+.pris__tal{font-family:var(--tung);font-size:clamp(42px,5.4vw,58px);line-height:1;letter-spacing:-.035em;color:var(--lingon);margin-top:20px}
+.pris__under{font-size:16px;font-weight:600;color:var(--dim);margin-top:8px}
+.bock{list-style:none;margin:26px 0 0;padding:0}
+.bock li{position:relative;padding:10px 0 10px 28px;border-bottom:1px solid var(--linje);font-size:15.5px}
+.bock li::before{content:"";position:absolute;left:1px;top:18px;width:12px;height:7px;
+  border-left:2px solid var(--lingon);border-bottom:2px solid var(--lingon);transform:rotate(-45deg)}
+.finstilt{font-size:13.5px;color:var(--dim);margin-top:20px}
+.kravlista{margin:26px 0 0}
+.kravlista dt{font-weight:700;font-size:15.5px;margin-top:17px}
+.kravlista dd{margin:2px 0 0;font-size:15px;color:var(--dim)}
+
+/* ===== Övriga kurser ===== */
+.ovriga{padding:74px 0 78px}
+.kurser{list-style:none;margin:34px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.kurser li{background:var(--vit);border:1px solid var(--linje);border-radius:4px;padding:22px 22px 24px}
+.kurser h3{margin-bottom:6px}
+.kurser__pris{font-weight:700;font-size:15px;color:var(--lingon);margin-bottom:10px!important}
+.kurser p{font-size:14px;color:var(--dim)}
+
+/* ===== Kontakt ===== */
+.kontakt{background:var(--vit);border-top:1px solid var(--linje);padding:74px 0 80px}
+.kontakt__in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px}
+.kontakt__lista{list-style:none;margin:30px 0 0;padding:0}
+.kontakt__lista li{display:flex;flex-wrap:wrap;gap:2px 16px;padding:13px 0;border-bottom:1px solid var(--linje)}
+.kontakt__lista span{flex:0 0 84px;font-size:12px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--dim);padding-top:5px}
+.kontakt__lista a{font-family:var(--tung);font-size:18px;color:var(--skiffer);text-decoration:none;letter-spacing:-.025em}
+.kontakt__lista a:hover{color:var(--lingon)}
+.fraga details{border-bottom:1px solid var(--linje)}
+.fraga h3{margin-bottom:6px}
+.fraga summary{cursor:pointer;padding:15px 0;font-weight:600;font-size:15.5px;list-style:none;display:flex;gap:12px}
+.fraga summary::-webkit-details-marker{display:none}
+.fraga summary::before{content:"+";font-family:var(--tung);color:var(--lingon);flex:0 0 12px}
+.fraga details[open] summary::before{content:"–"}
+.fraga details p{font-size:14.5px;color:var(--dim);padding:0 0 16px 24px}
+
+/* ===== Footer ===== */
+.footer{background:var(--skiffer);color:#9BA5A4;padding:42px 0 46px}
+.footer__in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px 40px}
+.footer__namn{font-family:var(--tung);font-size:17px;color:#fff;letter-spacing:-.025em}
+.footer__rad{font-size:13.5px;margin-top:9px}
+.footer__rad--dim{color:#788382;max-width:56ch}
+.footer__nav{display:flex;flex-direction:column;gap:8px}
+.footer__nav a{color:#9BA5A4;font-size:14px;font-weight:600;text-decoration:none}
+.footer__nav a:hover{color:#fff}
+
+/* ===== Bokningsruta ===== */
+.modal{position:fixed;inset:0;z-index:120;display:flex;align-items:flex-start;justify-content:center;padding:24px 16px;overflow-y:auto}
+.modal__bak{position:fixed;inset:0;background:rgba(22,28,29,.6)}
+.modal__box{position:relative;background:var(--vit);border-radius:5px;max-width:460px;width:100%;
+  padding:28px 26px 26px;margin:auto;box-shadow:0 18px 50px rgba(22,28,29,.28)}
+.modal__x{position:absolute;top:8px;right:10px;background:none;border:0;font-size:28px;line-height:1;cursor:pointer;color:var(--dim)}
+.modal__kvar{font-size:14px;font-weight:700;color:var(--lingon);margin-top:7px}
+#bokform{margin-top:22px}
+#bokform label{display:block;font-size:13px;font-weight:700;color:var(--text);margin-bottom:15px}
+#bokform small{font-weight:500;color:var(--dim)}
+#bokform input{display:block;width:100%;margin-top:7px;padding:13px 12px;font-family:inherit;font-size:16px;font-weight:500;
+  color:var(--text);background:#fff;border:1px solid var(--linje);border-radius:3px}
+#bokform input:focus{border-color:var(--skiffer);outline:none}
+.modal__finstilt{font-size:12.5px;color:var(--dim);margin-top:15px}
+.modal__klar{text-align:center;padding:14px 0 4px}
+.modal__klar-ikon{font-family:var(--tung);font-size:36px;color:var(--lingon);line-height:1}
+.modal__klar h3{margin:14px 0 10px;font-size:21px}
+.modal__klar p{font-size:15px;color:var(--dim);margin-bottom:22px}
+
+/* ===== Responsivt ===== */
+@media (max-width:1000px){
+  .hero__in{grid-template-columns:1fr;gap:38px;padding-top:54px;padding-bottom:60px}
+  .prisruta{max-width:min(400px,100%)}
+  .steg__lista{grid-template-columns:repeat(2,1fr);gap:28px 34px}
+  .kurser{grid-template-columns:repeat(2,1fr)}
+  .pris__in,.kontakt__in{grid-template-columns:1fr;gap:46px}
+  .rad{grid-template-columns:82px minmax(0,1fr) 100px;grid-template-areas:"datum info platser" "knapp knapp knapp"}
+  .rad__datum{grid-area:datum}.rad__info{grid-area:info}.rad__platser{grid-area:platser}
+  .rad__knapp{grid-area:knapp}
+}
+@media (max-width:760px){
+  .nav-toggle{display:flex}
+  .nav{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;gap:0;
+    background:var(--vit);border-bottom:1px solid var(--linje);padding:6px 22px 18px}
+  .nav.is-open{display:flex}
+  .nav a{padding:14px 0;border-bottom:1px solid var(--linje);font-size:17px}
+  .nav a.btn{margin-top:14px;border-bottom:0;justify-content:center}
+  .header__in{position:relative}
+  .steg__lista{grid-template-columns:1fr;gap:26px}
+  .kurser{grid-template-columns:1fr}
+  .rad{grid-template-columns:66px minmax(0,1fr);grid-template-areas:"datum info" "platser platser" "knapp knapp";gap:14px 18px}
+  .rad__datum{text-align:left}
+  .rad__datum strong{font-size:30px}
+  .rad__platser{display:flex;align-items:baseline;gap:9px;text-align:left;border-top:1px solid var(--linje);padding-top:13px}
+  .rad__tal{font-size:26px}
+  .rad__platser span{margin-top:0}
+  .footer__nav{flex-direction:row;flex-wrap:wrap;gap:8px 20px}
+}

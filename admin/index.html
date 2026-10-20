@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lennarts panel – Utbildningar Luleå</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><circle cx='24' cy='24' r='24' fill='%239C3B2A'/><g fill='%23F7F3EC'><path d='M15 32 L9 32 L12.5 25 L10.5 25 L14 18.5 L12.5 18.5 L16 11 L19.5 18.5 L18 18.5 L21.5 25 L19.5 25 L23 32 L17 32 Z'/><path d='M31 32 L26 32 L29 26 L27.5 26 L30.5 20.5 L29.3 20.5 L32 14.5 L34.7 20.5 L33.5 20.5 L36.5 26 L35 26 L38 32 L33 32 Z'/></g><g fill='none' stroke='%23F7F3EC' stroke-width='3.4' stroke-linecap='round'><path d='M11 40C14 37 19 37 22 39.5'/><path d='M26 41C29 37.5 34 37.5 37 40'/></g></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Black&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<p class="demo">Det här är en skiss. Alla elever, datum och fakturor nedan är påhittade exempel.</p>
+
+<header class="topp">
+  <div class="topp__in">
+    <div class="topp__namn">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#9C3B2A"/>
+        <g fill="#F7F3EC">
+          <path d="M15 32 L9 32 L12.5 25 L10.5 25 L14 18.5 L12.5 18.5 L16 11 L19.5 18.5 L18 18.5 L21.5 25 L19.5 25 L23 32 L17 32 Z"/>
+          <path d="M31 32 L26 32 L29 26 L27.5 26 L30.5 20.5 L29.3 20.5 L32 14.5 L34.7 20.5 L33.5 20.5 L36.5 26 L35 26 L38 32 L33 32 Z"/>
+        </g>
+        <g fill="none" stroke="#F7F3EC" stroke-width="3.4" stroke-linecap="round">
+          <path d="M11 40C14 37 19 37 22 39.5"/>
+          <path d="M26 41C29 37.5 34 37.5 37 40"/>
+        </g></svg>
+      <span>Utbildningar Luleå<small>Inloggad som Lennart</small></span>
+    </div>
+    <a class="topp__lank" href="../index.html" target="_blank" rel="noopener">Visa hemsidan ↗</a>
+  </div>
+  <nav class="flikar" aria-label="Vad vill du göra?">
+    <button class="flik is-aktiv" data-skarm="start">Snöläge &amp; tillfällen</button>
+    <button class="flik" data-skarm="anmalda">Anmälda <span class="rakna" id="antalAnmalda">9</span></button>
+    <button class="flik" data-skarm="nytt">Lägg upp nytt tillfälle</button>
+  </nav>
+</header>
+
+<main class="main">
+
+<!-- ============ SKÄRM 1: SNÖLÄGE + TILLFÄLLEN ============ -->
+<section class="skarm is-aktiv" id="skarm-start">
+
+  <div class="kort kort--snolage">
+    <h2>1. Hur är snöläget?</h2>
+    <p class="kort__hjalp">Det du väljer här står längst upp på hemsidan, i den mörka remsan högst upp. Välj ett av tre.</p>
+    <div class="snoval" role="group" aria-label="Snöläge">
+      <button class="snoval__knapp is-vald" data-lage="vantar">
+        <span class="snoval__lampa" aria-hidden="true"></span>
+        <strong>Väntar på snö</strong>
+        <small>Teorin rullar. Uppkörningsplats meddelas senare.</small>
+      </button>
+      <button class="snoval__knapp" data-lage="snon">
+        <span class="snoval__lampa" aria-hidden="true"></span>
+        <strong>Snön är här</strong>
+        <small>Uppkörning och prov körs som planerat.</small>
+      </button>
+      <button class="snoval__knapp" data-lage="slut">
+        <span class="snoval__lampa" aria-hidden="true"></span>
+        <strong>Säsongen är slut</strong>
+        <small>Inga fler tillfällen den här vintern.</small>
+      </button>
+    </div>
+    <div class="forhands">
+      <p class="forhands__etikett">Så här ser det ut på hemsidan nu:</p>
+      <div class="forhands__remsa" id="forhands">
+        <span class="forhands__lampa" aria-hidden="true"></span>
+        <strong id="forhandsStatus">Väntar på snö</strong>
+        <em id="forhandsText">Teorin rullar som planerat. Uppkörningsplats meddelas när snön tillåter – du bokar din dag redan nu.</em>
+      </div>
+      <label class="forhands__egen">Vill du skriva en egen rad i stället?
+        <input type="text" id="egenText" placeholder="T.ex. Uppkörning flyttad till 19 dec, isen bär inte än">
+      </label>
+      <p class="sparat" id="sparatSno" hidden>✓ Sparat. Hemsidan är uppdaterad.</p>
+    </div>
+  </div>
+
+  <div class="kort">
+    <div class="kort__topp">
+      <div>
+        <h2>2. Dina tillfällen</h2>
+        <p class="kort__hjalp">Ändra antal platser med – och +. Hemsidan räknar själv ner när någon bokar.</p>
+      </div>
+      <button class="btn btn--accent" data-ga="nytt">+ Lägg upp nytt tillfälle</button>
+    </div>
+
+    <h3 class="rubrad">Teori</h3>
+    <ul class="tlista" id="tlistaTeori">
+      <li class="tkort" data-id="t1" data-bokade="7" data-tak="12">
+        <div class="tkort__datum"><strong>10</strong><span>nov</span><em>–12 nov</em></div>
+        <div class="tkort__info">
+          <h4>Tre kvällar via Teams</h4>
+          <p>Tis–tors 18.00–21.30 · ca 11 h</p>
+          <span class="marke marke--teams">Teams</span>
+        </div>
+        <div class="tkort__platser">
+          <p class="tkort__etikett">Platser</p>
+          <div class="stepper">
+            <button class="stepper__btn" data-minus aria-label="Minska antal platser">–</button>
+            <span class="stepper__tal"><strong>12</strong>platser</span>
+            <button class="stepper__btn" data-plus aria-label="Öka antal platser">+</button>
+          </div>
+          <p class="tkort__status">7 bokade · <b>5 kvar</b></p>
+        </div>
+        <div class="tkort__gor">
+          <button class="btn" data-visa="t1">Se anmälda (7)</button>
+          <button class="btn btn--tyst" data-stall>Ställ in</button>
+        </div>
+      </li>
+
+      <li class="tkort" data-id="t2" data-bokade="3" data-tak="12">
+        <div class="tkort__datum"><strong>24</strong><span>nov</span><em>–26 nov</em></div>
+        <div class="tkort__info">
+          <h4>Tre kvällar på plats</h4>
+          <p>Tis–tors 18.00–21.30 · konferensrum Björkskatavägen 2</p>
+          <span class="marke marke--plats">På plats</span>
+        </div>
+        <div class="tkort__platser">
+          <p class="tkort__etikett">Platser</p>
+          <div class="stepper">
+            <button class="stepper__btn" data-minus aria-label="Minska antal platser">–</button>
+            <span class="stepper__tal"><strong>12</strong>platser</span>
+            <button class="stepper__btn" data-plus aria-label="Öka antal platser">+</button>
+          </div>
+          <p class="tkort__status">3 bokade · <b>9 kvar</b></p>
+        </div>
+        <div class="tkort__gor">
+          <button class="btn" data-visa="t2">Se anmälda (3)</button>
+          <button class="btn btn--tyst" data-stall>Ställ in</button>
+        </div>
+      </li>
+
+      <li class="tkort tkort--full" data-id="t3" data-bokade="12" data-tak="12">
+        <div class="tkort__datum"><strong>8</strong><span>dec</span><em>–10 dec</em></div>
+        <div class="tkort__info">
+          <h4>Tre kvällar via Teams</h4>
+          <p>Tis–tors 18.00–21.30 · ca 11 h</p>
+          <span class="marke marke--teams">Teams</span>
+        </div>
+        <div class="tkort__platser">
+          <p class="tkort__etikett">Platser</p>
+          <div class="stepper">
+            <button class="stepper__btn" data-minus aria-label="Minska antal platser">–</button>
+            <span class="stepper__tal"><strong>12</strong>platser</span>
+            <button class="stepper__btn" data-plus aria-label="Öka antal platser">+</button>
+          </div>
+          <p class="tkort__status tkort__status--full">FULLBOKAT på hemsidan</p>
+        </div>
+        <div class="tkort__gor">
+          <button class="btn" data-visa="t3">Se anmälda (12)</button>
+          <button class="btn btn--tyst" data-stall>Ställ in</button>
+        </div>
+      </li>
+    </ul>
+
+    <h3 class="rubrad">Uppkörning + prov</h3>
+    <ul class="tlista">
+      <li class="tkort" data-id="u1" data-bokade="0" data-tak="8">
+        <div class="tkort__datum"><strong>12</strong><span>dec</span></div>
+        <div class="tkort__info">
+          <h4>Uppkörning + teoriprov</h4>
+          <p>Hela dagen · fyra elever per grupp</p>
+          <span class="marke marke--sno">Plats meddelas</span>
+        </div>
+        <div class="tkort__platser">
+          <p class="tkort__etikett">Platser</p>
+          <div class="stepper">
+            <button class="stepper__btn" data-minus aria-label="Minska antal platser">–</button>
+            <span class="stepper__tal"><strong>8</strong>platser</span>
+            <button class="stepper__btn" data-plus aria-label="Öka antal platser">+</button>
+          </div>
+          <p class="tkort__status">0 bokade · <b>8 kvar</b></p>
+        </div>
+        <div class="tkort__gor">
+          <button class="btn" data-visa="u1">Se anmälda (0)</button>
+          <button class="btn btn--tyst" data-stall>Ställ in</button>
+        </div>
+      </li>
+      <li class="tkort" data-id="u2" data-bokade="5" data-tak="8">
+        <div class="tkort__datum"><strong>9</strong><span>jan</span></div>
+        <div class="tkort__info">
+          <h4>Uppkörning + teoriprov</h4>
+          <p>Hela dagen · fyra elever per grupp</p>
+          <span class="marke marke--sno">Plats meddelas</span>
+        </div>
+        <div class="tkort__platser">
+          <p class="tkort__etikett">Platser</p>
+          <div class="stepper">
+            <button class="stepper__btn" data-minus aria-label="Minska antal platser">–</button>
+            <span class="stepper__tal"><strong>8</strong>platser</span>
+            <button class="stepper__btn" data-plus aria-label="Öka antal platser">+</button>
+          </div>
+          <p class="tkort__status">5 bokade · <b>3 kvar</b></p>
+        </div>
+        <div class="tkort__gor">
+          <button class="btn" data-visa="u2">Se anmälda (5)</button>
+          <button class="btn btn--tyst" data-stall>Ställ in</button>
+        </div>
+      </li>
+      <li class="tkort" data-id="u3" data-bokade="0" data-tak="8">
+        <div class="tkort__datum"><strong>6</strong><span>feb</span></div>
+        <div class="tkort__info">
+          <h4>Uppkörning + teoriprov</h4>
+          <p>Hela dagen · fyra elever per grupp</p>
+          <span class="marke marke--sno">Plats meddelas</span>
+        </div>
+        <div class="tkort__platser">
+          <p class="tkort__etikett">Platser</p>
+          <div class="stepper">
+            <button class="stepper__btn" data-minus aria-label="Minska antal platser">–</button>
+            <span class="stepper__tal"><strong>8</strong>platser</span>
+            <button class="stepper__btn" data-plus aria-label="Öka antal platser">+</button>
+          </div>
+          <p class="tkort__status">0 bokade · <b>8 kvar</b></p>
+        </div>
+        <div class="tkort__gor">
+          <button class="btn" data-visa="u3">Se anmälda (0)</button>
+          <button class="btn btn--tyst" data-stall>Ställ in</button>
+        </div>
+      </li>
+      <li class="tkort" data-id="u4" data-bokade="0" data-tak="8">
+        <div class="tkort__datum"><strong>6</strong><span>mar</span></div>
+        <div class="tkort__info">
+          <h4>Uppkörning + teoriprov</h4>
+          <p>Hela dagen · fyra elever per grupp</p>
+          <span class="marke marke--sno">Plats meddelas</span>
+        </div>
+        <div class="tkort__platser">
+          <p class="tkort__etikett">Platser</p>
+          <div class="stepper">
+            <button class="stepper__btn" data-minus aria-label="Minska antal platser">–</button>
+            <span class="stepper__tal"><strong>8</strong>platser</span>
+            <button class="stepper__btn" data-plus aria-label="Öka antal platser">+</button>
+          </div>
+          <p class="tkort__status">0 bokade · <b>8 kvar</b></p>
+        </div>
+        <div class="tkort__gor">
+          <button class="btn" data-visa="u4">Se anmälda (0)</button>
+          <button class="btn btn--tyst" data-stall>Ställ in</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ SKÄRM 2: ANMÄLDA + FAKTUROR ============ -->
+<section class="skarm" id="skarm-anmalda">
+  <div class="kort">
+    <div class="kort__topp">
+      <div>
+        <h2>Anmälda</h2>
+        <p class="kort__hjalp">Välj ett tillfälle. Här skickar du faktura och bockar av när den är betald.</p>
+      </div>
+      <button class="btn" onclick="window.print()">Skriv ut listan</button>
+    </div>
+
+    <label class="valj">Tillfälle
+      <select id="valjTillfalle">
+        <option value="t1">Teori 10–12 november · Teams · 7 anmälda</option>
+        <option value="t2">Teori 24–26 november · på plats · 3 anmälda</option>
+        <option value="t3">Teori 8–10 december · Teams · 12 anmälda</option>
+        <option value="u1">Uppkörning 12 december · 0 anmälda</option>
+        <option value="u2">Uppkörning 9 januari · 5 anmälda</option>
+        <option value="u3">Uppkörning 6 februari · 0 anmälda</option>
+        <option value="u4">Uppkörning 6 mars · 0 anmälda</option>
+      </select>
+    </label>
+
+    <div class="summa">
+      <div class="summa__ruta"><strong id="sumAnmalda">7</strong><span>anmälda</span></div>
+      <div class="summa__ruta"><strong id="sumFaktura">2</strong><span>faktura ej skickad</span></div>
+      <div class="summa__ruta summa__ruta--varsel"><strong id="sumObetald">3</strong><span>obetalda</span></div>
+    </div>
+
+    <div class="tabellsvep">
+      <table class="tabell">
+        <thead>
+          <tr><th>Elev</th><th>Personnummer</th><th>Telefon</th><th>Målsman</th><th>Faktura</th><th>Betald</th><th></th></tr>
+        </thead>
+        <tbody id="elever"></tbody>
+      </table>
+    </div>
+    <p class="kort__hjalp kort__hjalp--not">Påhittade exempelelever – de försvinner när panelen kopplas till riktiga bokningar.</p>
+  </div>
+</section>
+
+<!-- ============ SKÄRM 3: NYTT TILLFÄLLE ============ -->
+<section class="skarm" id="skarm-nytt">
+  <div class="kort kort--smal">
+    <h2>Lägg upp nytt tillfälle</h2>
+    <p class="kort__hjalp">Fyll i och tryck Spara. Tillfället syns på hemsidan direkt.</p>
+
+    <form class="form" id="nyttForm">
+      <fieldset>
+        <legend>Vad är det för tillfälle?</legend>
+        <div class="radrad">
+          <label class="valkort"><input type="radio" name="typ" value="teori" checked><span><strong>Teori</strong>Tre kvällar</span></label>
+          <label class="valkort"><input type="radio" name="typ" value="uppkorning"><span><strong>Uppkörning + prov</strong>En dag på snön</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset id="formHur">
+        <legend>Var hålls teorin?</legend>
+        <div class="radrad">
+          <label class="valkort"><input type="radio" name="hur" value="teams" checked><span><strong>Teams</strong>Eleverna sitter hemma</span></label>
+          <label class="valkort"><input type="radio" name="hur" value="plats"><span><strong>På plats</strong>Konferensrum i Luleå</span></label>
+        </div>
+      </fieldset>
+
+      <label class="falt">Första dagen
+        <input type="date" name="start" required>
+      </label>
+      <label class="falt" id="faltSlut">Sista dagen
+        <input type="date" name="slut">
+      </label>
+      <label class="falt">Tid
+        <input type="text" name="tid" value="18.00–21.30">
+      </label>
+      <label class="falt">Plats <small>lämna tomt om snöläget avgör</small>
+        <input type="text" name="plats" placeholder="Meddelas när snön tillåter">
+      </label>
+
+      <label class="falt falt--platser">Hur många platser?
+        <div class="stepper stepper--stor">
+          <button type="button" class="stepper__btn" data-minus aria-label="Minska">–</button>
+          <span class="stepper__tal"><strong id="nyaPlatser">12</strong>platser</span>
+          <button type="button" class="stepper__btn" data-plus aria-label="Öka">+</button>
+        </div>
+        <small>Normalt 12 på teori, 8 på uppkörning.</small>
+      </label>
+
+      <div class="form__gor">
+        <button class="btn btn--accent btn--stor" type="submit">Spara tillfället</button>
+        <button class="btn btn--tyst" type="reset">Rensa</button>
+      </div>
+      <p class="sparat" id="sparatNytt" hidden>✓ Sparat. Tillfället ligger nu på hemsidan.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="fot">
+  <p>Skiss på adminpanel för Utbildningar Luleå · inget sparas, inget skickas · <a href="../index.html">tillbaka till hemsidan</a></p>
+</footer>
+
+
+<!-- ============ FAKTURAFÖRHANDSVISNING – granskning, ingen redigering ============ -->
+<div class="fmodal" id="fakturaModal" hidden>
+  <div class="fmodal__bak" data-fstang></div>
+  <div class="fmodal__box" role="dialog" aria-modal="true" aria-labelledby="fmodalRubrik">
+    <div class="fmodal__topp">
+      <div>
+        <h2 id="fmodalRubrik">Så här ser fakturan ut</h2>
+        <p class="fmodal__hjalp">Förhandsvisning. Du kan inte ändra något här – siffrorna kommer från kursen och bokningen.</p>
+      </div>
+      <button class="fmodal__x" data-fstang aria-label="Stäng">×</button>
+    </div>
+
+    <div class="faktura" id="fakturaArk">
+      <div class="faktura__huvud">
+        <div class="faktura__avs">
+          <p class="faktura__logo">Utbildningar Luleå</p>
+          <p>Björkskatavägen 2<br>976 31 Luleå</p>
+          <p>070-668 78 96<br>lennart@utbildningarlulea.se</p>
+          <p class="faktura__orgnr">Utbildningar Luleå AB · org.nr 559162-0744<br>Godkänd för F-skatt</p>
+        </div>
+        <div class="faktura__meta">
+          <p class="faktura__ord">Faktura</p>
+          <dl>
+            <dt>Fakturanummer</dt><dd id="fNr">–</dd>
+            <dt>Fakturadatum</dt><dd id="fDatum">–</dd>
+            <dt>Förfallodatum</dt><dd id="fForfall">–</dd>
+            <dt>Betalningsvillkor</dt><dd>14 dagar</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="faktura__parter">
+        <div>
+          <p class="faktura__etikett">Faktureras</p>
+          <p class="faktura__namn" id="fMottagare">–</p>
+          <p id="fMottagarNot" class="faktura__not">–</p>
+        </div>
+        <div>
+          <p class="faktura__etikett">Avser</p>
+          <p class="faktura__namn">Förarbevis snöskoter, säsongen 26/27</p>
+          <p class="faktura__not" id="fTillfalle">–</p>
+        </div>
+      </div>
+
+      <table class="faktura__rader">
+        <thead><tr><th>Beskrivning</th><th>Antal</th><th>À-pris</th><th>Belopp</th></tr></thead>
+        <tbody>
+          <tr><td>Kursavgift förarbevis snöskoter</td><td>1</td><td>1 750,00</td><td>1 750,00</td></tr>
+          <tr><td>Kursmaterial, lån av studiebok</td><td>1</td><td>250,00</td><td>250,00</td></tr>
+        </tbody>
+      </table>
+
+      <div class="faktura__summa">
+        <p><span>Summa</span><b>2 000,00 kr</b></p>
+        <p class="faktura__moms"><span>varav moms 25 %</span><b>400,00 kr</b></p>
+        <p class="faktura__total"><span>Att betala</span><b>2 000,00 kr</b></p>
+      </div>
+
+      <div class="faktura__fot">
+        <p><b>Betalas till bankgiro 000-0000</b> senast <span id="fForfall2">–</span>. Ange fakturanumret som referens.</p>
+        <p>Examinationsavgiften till Transportstyrelsen ingår inte i beloppet. Den betalas med det
+          inbetalningskort du får hem från Transportstyrelsen efter godkänt prov.</p>
+        <p class="faktura__dro">Vid utebliven betalning tillkommer påminnelseavgift och dröjsmålsränta enligt räntelagen.</p>
+      </div>
+    </div>
+
+    <p class="fmodal__varning">Bankgironummer, momssats och fakturanummerserie är exempel i den här skissen.</p>
+
+    <div class="fmodal__gor">
+      <button class="btn btn--accent btn--stor" id="fSkicka">Skicka fakturan</button>
+      <button class="btn" id="fSkrivUt">Skriv ut</button>
+      <button class="btn btn--tyst" data-fstang>Stäng</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/admin.js"></script>
+</body>
+</html>
